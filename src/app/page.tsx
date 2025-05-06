@@ -1,11 +1,81 @@
+"use client"
+import React, { useRef, useState, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/atomic/button"
-import { Card, CardContent } from "@/components/composed/card"
+import { Button } from "@/components/ui/atomic/button"
+import { Card, CardContent } from "@/components/ui/composed/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CalendarIcon, Users, BookOpen, HeartHandshake, ArrowRight, Phone, Mail, MapPin } from "lucide-react"
 
 export default function Home() {
+  // Newsletter state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<string | null>(null);
+  const newsletterInputRef = useRef<HTMLInputElement>(null);
+
+  // Contact form state
+  const [contact, setContact] = useState({ name: "", email: "", message: "" });
+  const [contactStatus, setContactStatus] = useState<string | null>(null);
+  const [contactLoading, setContactLoading] = useState(false);
+
+  // Newsletter handler
+  const handleNewsletter = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNewsletterStatus(null);
+    if (!newsletterEmail || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(newsletterEmail)) {
+      setNewsletterStatus("Por favor, insira um e-mail válido.");
+      newsletterInputRef.current?.focus();
+      return;
+    }
+    try {
+      const res = await fetch("/api/newsletter/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: newsletterEmail })
+      });
+      if (res.ok) {
+        setNewsletterStatus("Inscrição realizada com sucesso!");
+        setNewsletterEmail("");
+      } else {
+        setNewsletterStatus("Erro ao inscrever. Tente novamente.");
+      }
+    } catch {
+      setNewsletterStatus("Erro ao inscrever. Tente novamente.");
+    }
+  }, [newsletterEmail]);
+
+  // Contact handler
+  const handleContact = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactStatus(null);
+    if (!contact.name || !contact.email || !contact.message) {
+      setContactStatus("Preencha todos os campos.");
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact.email)) {
+      setContactStatus("E-mail inválido.");
+      return;
+    }
+    setContactLoading(true);
+    try {
+      const res = await fetch("/api/contact/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contact)
+      });
+      if (res.ok) {
+        setContactStatus("Mensagem enviada com sucesso!");
+        setContact({ name: "", email: "", message: "" });
+      } else {
+        setContactStatus("Erro ao enviar. Tente novamente.");
+      }
+    } catch {
+      setContactStatus("Erro ao enviar. Tente novamente.");
+    } finally {
+      setContactLoading(false);
+    }
+  }, [contact]);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -216,38 +286,63 @@ export default function Home() {
 
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold mb-4">Envie uma Mensagem</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" role="form" aria-label="Formulário de contato" onSubmit={handleContact}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Nome
+                    Nome <span aria-hidden="true" className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    required
+                    aria-required="true"
+                    aria-label="Nome"
+                    value={contact.name}
+                    onChange={e => setContact(c => ({ ...c, name: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
+                    Email <span aria-hidden="true" className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
+                    aria-required="true"
+                    aria-label="Email"
+                    value={contact.email}
+                    onChange={e => setContact(c => ({ ...c, email: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Mensagem
+                    Mensagem <span aria-hidden="true" className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    required
+                    aria-required="true"
+                    aria-label="Mensagem"
                     rows={4}
+                    value={contact.message}
+                    onChange={e => setContact(c => ({ ...c, message: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   ></textarea>
                 </div>
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">Enviar Mensagem</Button>
+                <div aria-live="polite" className="min-h-[24px] text-sm">
+                  {contactStatus && (
+                    <span className={contactStatus.includes("sucesso") ? "text-emerald-600" : "text-red-600"}>{contactStatus}</span>
+                  )}
+                </div>
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700" type="submit" aria-disabled={contactLoading} disabled={contactLoading}>
+                  {contactLoading ? "Enviando..." : "Enviar Mensagem"}
+                </Button>
               </form>
             </div>
           </div>
@@ -307,13 +402,26 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
               <p className="text-gray-400 mb-4">Receba novidades sobre nossos projetos e eventos</p>
-              <div className="flex w-full items-stretch">
+              <form className="flex w-full items-stretch" role="form" aria-label="Formulário de newsletter" onSubmit={handleNewsletter}>
                 <input
                   type="email"
+                  ref={newsletterInputRef}
                   placeholder="Seu email"
+                  aria-label="Seu email"
+                  required
+                  aria-required="true"
+                  value={newsletterEmail}
+                  onChange={e => setNewsletterEmail(e.target.value)}
                   className="px-3 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none flex-1 min-w-0"
                 />
-                <Button className="rounded-l-none bg-emerald-600 hover:bg-emerald-700 min-w-[100px]">Assinar</Button>
+                <Button className="rounded-l-none bg-emerald-600 hover:bg-emerald-700 min-w-[100px]" type="submit">
+                  Assinar
+                </Button>
+              </form>
+              <div aria-live="polite" className="min-h-[24px] text-sm mt-2">
+                {newsletterStatus && (
+                  <span className={newsletterStatus.includes("sucesso") ? "text-emerald-400" : "text-red-400"}>{newsletterStatus}</span>
+                )}
               </div>
             </div>
           </div>
@@ -341,6 +449,7 @@ function ProjectCard({ title, description, image }: ProjectCardProps) {
         width={400}
         height={200}
         className="w-full h-48 object-cover"
+        loading="lazy"
       />
       <CardContent className="p-6">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>

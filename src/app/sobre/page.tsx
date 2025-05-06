@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Button } from "@/components/atomic/button"
-import { Card, CardContent } from "@/components/composed/card"
+import { Button } from "@/components/ui/atomic/button"
+import { Card, CardContent } from "@/components/ui/composed/card"
 import { Users, Award, Target, Clock } from "lucide-react"
 
 export default function SobrePage() {

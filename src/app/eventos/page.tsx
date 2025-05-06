@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/atomic/button"
-import { Card, CardContent } from "@/components/composed/card"
+import { Button } from "@/components/ui/atomic/button"
+import { Card, CardContent } from "@/components/ui/composed/card"
 import { CalendarIcon, Clock, MapPin, Users, ArrowRight } from "lucide-react"
 
 export default function EventosPage() {
