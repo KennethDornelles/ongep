@@ -1,10 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { CalendarIcon, Clock, MapPin, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from "lucide-react"
 
-export default function EventoDetalhePage({ params }) {
+interface EventoDetalhePageProps {
+  params: { id: string };
+}
+
+export default function EventoDetalhePage({ params }: EventoDetalhePageProps) {
   // Na implementação real, você buscaria o evento pelo ID
   const event = {
     id: Number.parseInt(params.id),
@@ -207,7 +211,15 @@ export default function EventoDetalhePage({ params }) {
   )
 }
 
-function RelatedEventCard({ event }) {
+interface RelatedEvent {
+  id: number;
+  title: string;
+  date: string;
+  category: string;
+  image: string;
+}
+
+function RelatedEventCard({ event }: { event: RelatedEvent }) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="relative h-48">

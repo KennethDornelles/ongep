@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import {
   CalendarIcon,
   Clock,
@@ -15,7 +15,21 @@ import {
   ArrowRight,
 } from "lucide-react"
 
-export default function BlogPostPage({ params }) {
+interface BlogPostPageProps {
+  params: { id: string }
+}
+
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   // Na implementação real, você buscaria o post pelo ID
   const post = blogPosts.find((p) => p.id === Number.parseInt(params.id)) || blogPosts[0]
 
@@ -53,10 +67,10 @@ export default function BlogPostPage({ params }) {
       </section>
 
       {/* Blog Content */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2">
+      <section className="py-12 flex justify-center bg-transparent">
+        <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+          <div className="grid grid-cols-1 gap-8">
+            <div>
               <Link href="/blog" className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-6">
                 <ArrowLeft className="h-4 w-4 mr-2" /> Voltar para o Blog
               </Link>
@@ -148,7 +162,13 @@ export default function BlogPostPage({ params }) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1">
               {/* Author Card */}
               <Card className="mb-8">
@@ -270,7 +290,7 @@ export default function BlogPostPage({ params }) {
   )
 }
 
-function BlogPostCard({ post }) {
+function BlogPostCard({ post }: { post: BlogPost }) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="relative h-48">

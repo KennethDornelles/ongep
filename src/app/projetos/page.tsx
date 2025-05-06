@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { ArrowRight } from "lucide-react"
 
 export default function ProjetosPage() {
@@ -91,7 +91,15 @@ export default function ProjetosPage() {
   )
 }
 
-function ProjectCard({ project }) {
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+}
+
+function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="relative h-48">
@@ -113,7 +121,7 @@ function ProjectCard({ project }) {
   )
 }
 
-function ImpactCard({ number, text }) {
+function ImpactCard({ number, text }: { number: string; text: string }) {
   return (
     <Card className="border-none shadow-lg text-center">
       <CardContent className="p-6">

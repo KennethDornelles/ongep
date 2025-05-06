@@ -16,10 +16,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className + " bg-[#b3b3b3] min-h-screen"}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Header />
-          {children}
+          <main className="flex flex-col items-center justify-center w-full min-h-[calc(100vh-80px)]">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

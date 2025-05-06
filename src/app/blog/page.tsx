@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { CalendarIcon, Clock, User, ArrowRight } from "lucide-react"
 
 export default function BlogPage() {
@@ -141,7 +141,17 @@ export default function BlogPage() {
   )
 }
 
-function BlogPostCard({ post }) {
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+}
+
+function BlogPostCard({ post }: { post: BlogPost }) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="relative h-48">

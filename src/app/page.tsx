@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CalendarIcon, Users, BookOpen, HeartHandshake, ArrowRight, Phone, Mail, MapPin } from "lucide-react"
 
@@ -307,13 +307,13 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
               <p className="text-gray-400 mb-4">Receba novidades sobre nossos projetos e eventos</p>
-              <div className="flex">
+              <div className="flex w-full items-stretch">
                 <input
                   type="email"
                   placeholder="Seu email"
-                  className="px-3 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none flex-grow"
+                  className="px-3 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none flex-1 min-w-0"
                 />
-                <Button className="rounded-l-none bg-emerald-600 hover:bg-emerald-700">Assinar</Button>
+                <Button className="rounded-l-none bg-emerald-600 hover:bg-emerald-700 min-w-[100px]">Assinar</Button>
               </div>
             </div>
           </div>
@@ -326,7 +326,13 @@ export default function Home() {
   )
 }
 
-function ProjectCard({ title, description, image }) {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+function ProjectCard({ title, description, image }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden">
       <Image
@@ -347,7 +353,13 @@ function ProjectCard({ title, description, image }) {
   )
 }
 
-function EventCard({ title, date, location }) {
+interface EventCardProps {
+  title: string;
+  date: string;
+  location: string;
+}
+
+function EventCard({ title, date, location }: EventCardProps) {
   return (
     <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
       <CardContent className="p-6">

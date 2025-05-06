@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { CalendarIcon, Clock, MapPin, Users, ArrowRight } from "lucide-react"
 
 export default function EventosPage() {
@@ -157,7 +157,22 @@ export default function EventosPage() {
   )
 }
 
-function EventCard({ event }) {
+interface EventCardProps {
+  event: {
+    id: number;
+    title: string;
+    category: string;
+    day?: string;
+    month?: string;
+    time?: string;
+    location?: string;
+    description?: string;
+    date?: string;
+    image?: string;
+  };
+}
+
+function EventCard({ event }: EventCardProps) {
   return (
     <Card className="overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-4">
@@ -193,7 +208,7 @@ function EventCard({ event }) {
   )
 }
 
-function PastEventCard({ event }) {
+function PastEventCard({ event }: EventCardProps) {
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="relative h-48">

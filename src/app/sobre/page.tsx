@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/atomic/button"
+import { Card, CardContent } from "@/components/composed/card"
 import { Users, Award, Target, Clock } from "lucide-react"
 
 export default function SobrePage() {
@@ -173,7 +173,13 @@ export default function SobrePage() {
   )
 }
 
-function ValueCard({ icon, title, description }) {
+interface ValueCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function ValueCard({ icon, title, description }: ValueCardProps) {
   return (
     <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
       <CardContent className="pt-6 text-center">
@@ -185,7 +191,14 @@ function ValueCard({ icon, title, description }) {
   )
 }
 
-function TeamMember({ name, role, bio, image }) {
+interface TeamMemberProps {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+}
+
+function TeamMember({ name, role, bio, image }: TeamMemberProps) {
   return (
     <div className="text-center">
       <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden">
