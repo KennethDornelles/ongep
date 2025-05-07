@@ -92,3 +92,54 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@media (max-width: 640px) {
+  h1, .main-title, .text-4xl, .text-5xl, .text-3xl {
+    font-size: 1.5rem !important;
+    text-align: center;
+    word-break: break-word;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  nav, .menu, .flex-row {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    width: 100%;
+  }
+  .menu-item, nav a, .nav-link {
+    font-size: 1rem !important;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  .container, .main-content, .section {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .grid-cols-2, .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-cols-3, .md\:grid-cols-3, .lg\:grid-cols-3, .md\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+  .gap-8, .gap-6, .gap-4 {
+    gap: 1rem !important;
+  }
+  .px-4 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .py-16, .py-12 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .mb-12, .mb-8, .mb-6, .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  .max-w-3xl, .max-w-4xl, .max-w-5xl {
+    max-width: 100% !important;
+  }
+}
