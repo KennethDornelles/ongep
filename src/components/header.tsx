@@ -31,7 +31,7 @@ export default function Header() {
         <nav
           className={
             `md:flex flex-row gap-8 justify-center items-center bg-transparent ${isMenuOpen
-              ? 'flex flex-col absolute left-0 top-[100%] mt-6 w-full bg-[#222] py-8 px-6 shadow-2xl z-30 animate-fade-in'
+              ? 'flex flex-col absolute left-0 top-[100%] mt-6 w-full bg-neutral-900 bg-opacity-95 py-8 px-6 shadow-2xl z-50'
               : 'hidden'
             } md:static md:bg-transparent md:py-0 md:px-0 md:shadow-none`
           }
