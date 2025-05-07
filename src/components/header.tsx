@@ -20,7 +20,7 @@ export default function Header() {
         <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-2 drop-shadow-lg">
           ONGEP - Organização Não-Governamental para a Educação Popular
         </h1>
-        <span className="text-white text-lg font-medium mb-8">Páginas</span>
+        <span className="text-white text-lg font-medium mb-8"></span>
         {/* Overlay para bloquear interação e escurecer fundo quando menu está aberto */}
         {isMenuOpen && (
           <div className="fixed inset-0 z-40 bg-black bg-opacity-70 md:hidden" aria-hidden="true"></div>
