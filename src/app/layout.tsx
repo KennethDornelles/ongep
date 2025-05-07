@@ -1,21 +1,32 @@
-import { Inter } from "next/font/google"
-import "../styles/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import Header from "@/components/header"
-import type { ReactNode } from "react"
+import { Inter } from "next/font/google";
+import "../styles/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/header";
+import type { ReactNode } from "react";
+import { getTranslations } from "next-intl/server";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "ONGEP - Organização Não Governamental para Educação e Projetos Sociais",
-  description:
-    "Promovendo educação, cultura e desenvolvimento social através de projetos que transformam vidas e comunidades.",
-  generator: 'v0.dev'
+export async function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "pt" }];
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  const translations = await getTranslations({ locale, namespace: "common" });
+  return { title: translations("title") };
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
+  const locale = params?.locale || "en";
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={inter.className + " bg-[#b3b3b3] min-h-screen"}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Header />
@@ -25,5 +36,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

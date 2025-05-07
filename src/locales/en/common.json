@@ -1,0 +1,103 @@
+{
+  "title": "ONGEP - Non-Governmental Organization for Popular Education",
+  "home": {
+    "heroTitle": "ONGEP",
+    "heroSubtitle": "Non-Governmental Organization for Education and Social Projects",
+    "missionTitle": "Our Mission",
+    "missionDescription": "Promoting education, culture, and social development through projects that transform lives and communities.",
+    "projectsTitle": "Our Projects",
+    "projectsDescription": "Discover the initiatives that are transforming lives and communities.",
+    "eventsTitle": "Upcoming Events",
+    "eventsDescription": "Check out our schedule of events, workshops, and activities.",
+    "contactTitle": "Contact Us",
+    "contactDescription": "We are available to answer questions and receive suggestions.",
+    "learnMoreButton": "Learn more",
+    "seeProjectsButton": "Discover Our Projects",
+    "howToHelpButton": "How to Help",
+    "educationTitle": "Education",
+    "educationDescription": "We promote access to quality education for children and youth in vulnerable situations.",
+    "communityTitle": "Community",
+    "communityDescription": "We strengthen communities through social projects that promote citizenship and inclusion.",
+    "solidarityTitle": "Solidarity",
+    "solidarityDescription": "We encourage a culture of volunteering and donation for important social causes.",
+    "registerButton": "Register",
+    "newsletterPlaceholder": "Your email",
+    "newsletterSubmit": "Subscribe",
+    "newsletterSuccess": "Subscription successful!",
+    "newsletterError": "Error subscribing. Please try again.",
+    "emailInvalid": "Please enter a valid email.",
+    "contactFormName": "Name",
+    "contactFormEmail": "Email",
+    "contactFormMessage": "Message",
+    "contactFormSubmit": "Send",
+    "contactFormSuccess": "Message sent successfully!",
+    "contactFormError": "Error sending message. Please try again.",
+    "contactFormIncomplete": "Please fill in all fields.",
+    "date": "Date",
+    "location": "Location"
+  },
+  "blog": {
+    "heroTitle": "Blog",
+    "heroSubtitle": "News, articles, and stories about our projects and initiatives.",
+    "categories": ["Education", "Projects", "Volunteering", "Stories"],
+    "featuredTitle": "Highlight",
+    "recentPostsTitle": "Recent Articles",
+    "newsletterTitle": "Subscribe to Our Newsletter",
+    "newsletterDescription": "Receive the latest news, articles, and updates about our projects directly in your email."
+  },
+  "eventos": {
+    "heroTitle": "Events",
+    "heroSubtitle": "Check out our schedule of events, workshops, and activities.",
+    "categories": ["Workshops", "Lectures", "Fairs", "Social Actions"],
+    "featuredTitle": "Next Event",
+    "calendarTitle": "Event Calendar",
+    "pastEventsTitle": "Past Events",
+    "ctaTitle": "Want to Propose an Event?",
+    "ctaDescription": "If you have an idea for an event or activity that aligns with our mission, contact us."
+  },
+  "sobre": {
+    "heroTitle": "About Us",
+    "heroSubtitle": "Learn about our history, mission, and values.",
+    "historyTitle": "Our History",
+    "valuesTitle": "Our Values",
+    "teamTitle": "Our Team",
+    "partnersTitle": "Our Partners",
+    "ctaTitle": "Be Part of Our Story",
+    "ctaDescription": "Join us in the mission to transform lives through education and social projects."
+  },
+  "projects": {
+    "heroTitle": "Our Projects",
+    "heroSubtitle": "Discover the initiatives that are transforming lives and communities.",
+    "categories": ["Education", "Culture", "Environment", "Citizenship"],
+    "impactTitle": "Our Impact",
+    "ctaTitle": "Want to Support Our Projects?",
+    "ctaDescription": "Your contribution can make a difference in the lives of many people."
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "We are available to answer questions and receive suggestions.",
+    "formTitle": "Send a Message",
+    "addressTitle": "Address",
+    "contactInfoTitle": "Contact Information"
+  },
+  "common": {
+    "readMore": "Read more",
+    "learnMore": "Learn more",
+    "signUp": "Sign up",
+    "submit": "Submit",
+    "seeAll": "See all",
+    "menu": "Menu",
+    "close": "Close",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+  },
+  "header": {
+    "home": "HOME",
+    "events": "EVENTS",
+    "projects": "PROJECTS",
+    "blog": "BLOG",
+    "about": "ABOUT",
+    "contact": "CONTACT"
+  }
+}

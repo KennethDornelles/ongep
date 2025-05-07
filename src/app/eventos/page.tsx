@@ -3,157 +3,168 @@ import Link from "next/link"
 import { Button } from "@/components/ui/atomic/button"
 import { Card, CardContent } from "@/components/ui/composed/card"
 import { CalendarIcon, Clock, MapPin, Users, ArrowRight } from "lucide-react"
+import { IntlProvider } from "next-intl";
+import { notFound } from "next/navigation";
 
-export default function EventosPage() {
+export default async function EventosPage({ params }: { params: { locale: string } }) {
+  let messages;
+  try {
+    messages = (await import(`../../locales/${params.locale}/common.json`)).default;
+  } catch (error) {
+    notFound();
+  }
+
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative w-full h-[300px] bg-gradient-to-r from-emerald-800 to-emerald-600 flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="container mx-auto px-4 z-20 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Eventos</h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto">
-            Confira nossa agenda de eventos, workshops e atividades
-          </p>
-        </div>
-      </section>
-
-      {/* Event Categories */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">Todos os Eventos</Button>
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Workshops
-            </Button>
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Palestras
-            </Button>
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Feiras
-            </Button>
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Ações Sociais
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Event */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Próximo Evento</h2>
-            <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
-          </div>
-
-          <Card className="overflow-hidden max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="relative h-64 md:h-auto">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Evento em destaque"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardContent className="p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                  <div className="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-1 rounded mb-3">
-                    Workshop
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Workshop de Educação Ambiental</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-gray-600">
-                      <CalendarIcon className="h-4 w-4 mr-2" />
-                      <span>15 de Maio, 2025 | 14:00 - 17:00</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span>Centro Comunitário - Av. Principal, 123</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Users className="h-4 w-4 mr-2" />
-                      <span>Vagas limitadas: 30 pessoas</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    Aprenda sobre práticas sustentáveis e como implementar projetos de educação ambiental em sua
-                    comunidade. Atividades práticas e material didático incluídos.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button className="bg-emerald-600 hover:bg-emerald-700">Inscrever-se</Button>
-                  <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-                    Mais Informações
-                  </Button>
-                </div>
-              </CardContent>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* Calendar Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Calendário de Eventos</h2>
-            <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Confira nossa programação completa e participe das atividades
+    <IntlProvider locale={params.locale} messages={messages} timeZone="UTC">
+      <div className="flex flex-col min-h-screen">
+        {/* Hero Section */}
+        <section className="relative w-full h-[300px] bg-gradient-to-r from-emerald-800 to-emerald-600 flex items-center justify-center text-white">
+          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="container mx-auto px-4 z-20 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Eventos</h1>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto">
+              Confira nossa agenda de eventos, workshops e atividades
             </p>
           </div>
+        </section>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-800">Maio 2025</h3>
-            {events.slice(0, 3).map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-10">Junho 2025</h3>
-            {events.slice(3, 6).map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
+        {/* Event Categories */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button className="bg-emerald-600 hover:bg-emerald-700">Todos os Eventos</Button>
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                Workshops
+              </Button>
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                Palestras
+              </Button>
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                Feiras
+              </Button>
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                Ações Sociais
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Past Events */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Eventos Anteriores</h2>
-            <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
+        {/* Featured Event */}
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Próximo Evento</h2>
+              <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
+            </div>
+
+            <Card className="overflow-hidden max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="relative h-64 md:h-auto">
+                  <Image
+                    src="/placeholder.svg?height=400&width=600"
+                    alt="Evento em destaque"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardContent className="p-6 md:p-8 flex flex-col justify-between">
+                  <div>
+                    <div className="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-1 rounded mb-3">
+                      Workshop
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">Workshop de Educação Ambiental</h3>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-gray-600">
+                        <CalendarIcon className="h-4 w-4 mr-2" />
+                        <span>15 de Maio, 2025 | 14:00 - 17:00</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="h-4 w-4 mr-2" />
+                        <span>Centro Comunitário - Av. Principal, 123</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Users className="h-4 w-4 mr-2" />
+                        <span>Vagas limitadas: 30 pessoas</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 mb-4">
+                      Aprenda sobre práticas sustentáveis e como implementar projetos de educação ambiental em sua
+                      comunidade. Atividades práticas e material didático incluídos.
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button className="bg-emerald-600 hover:bg-emerald-700">Inscrever-se</Button>
+                    <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                      Mais Informações
+                    </Button>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pastEvents.map((event) => (
-              <PastEventCard key={event.id} event={event} />
-            ))}
+        {/* Calendar Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Calendário de Eventos</h2>
+              <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                Confira nossa programação completa e participe das atividades
+              </p>
+            </div>
+
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <h3 className="text-xl font-semibold text-gray-800">Maio 2025</h3>
+              {events.slice(0, 3).map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+
+              <h3 className="text-xl font-semibold text-gray-800 mt-10">Junho 2025</h3>
+              {events.slice(3, 6).map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="text-center mt-10">
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Ver Todos os Eventos Anteriores
+        {/* Past Events */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Eventos Anteriores</h2>
+              <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {pastEvents.map((event) => (
+                <PastEventCard key={event.id} event={event} />
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+                Ver Todos os Eventos Anteriores
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-emerald-700 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-6">Quer Propor um Evento?</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              Se você tem uma ideia para um evento ou atividade que se alinha com nossa missão, entre em contato conosco
+            </p>
+            <Button size="lg" className="bg-white text-emerald-700 hover:bg-gray-100">
+              Entre em Contato
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-emerald-700 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Quer Propor um Evento?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Se você tem uma ideia para um evento ou atividade que se alinha com nossa missão, entre em contato conosco
-          </p>
-          <Button size="lg" className="bg-white text-emerald-700 hover:bg-gray-100">
-            Entre em Contato
-          </Button>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </IntlProvider>
   )
 }
 

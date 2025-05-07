@@ -1,0 +1,103 @@
+{
+  "title": "ONGEP - Organização Não-Governamental para a Educação Popular",
+  "home": {
+    "heroTitle": "ONGEP",
+    "heroSubtitle": "Organização Não Governamental para Educação e Projetos Sociais",
+    "missionTitle": "Nossa Missão",
+    "missionDescription": "Promover a educação, cultura e desenvolvimento social através de projetos que transformam vidas e comunidades.",
+    "projectsTitle": "Nossos Projetos",
+    "projectsDescription": "Conheça as iniciativas que estão transformando vidas e comunidades.",
+    "eventsTitle": "Próximos Eventos",
+    "eventsDescription": "Confira nossa agenda de eventos, workshops e atividades.",
+    "contactTitle": "Entre em Contato",
+    "contactDescription": "Estamos à disposição para esclarecer dúvidas e receber sugestões.",
+    "learnMoreButton": "Saiba mais",
+    "seeProjectsButton": "Conheça Nossos Projetos",
+    "howToHelpButton": "Como Ajudar",
+    "educationTitle": "Educação",
+    "educationDescription": "Promovemos acesso à educação de qualidade para crianças e jovens em situação de vulnerabilidade.",
+    "communityTitle": "Comunidade",
+    "communityDescription": "Fortalecemos comunidades através de projetos sociais que promovem cidadania e inclusão.",
+    "solidarityTitle": "Solidariedade",
+    "solidarityDescription": "Incentivamos a cultura de voluntariado e doação para causas sociais importantes.",
+    "registerButton": "Inscrever-se",
+    "newsletterPlaceholder": "Seu e-mail",
+    "newsletterSubmit": "Inscrever-se",
+    "newsletterSuccess": "Inscrição realizada com sucesso!",
+    "newsletterError": "Erro ao inscrever. Tente novamente.",
+    "emailInvalid": "Por favor, insira um e-mail válido.",
+    "contactFormName": "Nome",
+    "contactFormEmail": "E-mail",
+    "contactFormMessage": "Mensagem",
+    "contactFormSubmit": "Enviar",
+    "contactFormSuccess": "Mensagem enviada com sucesso!",
+    "contactFormError": "Erro ao enviar. Tente novamente.",
+    "contactFormIncomplete": "Preencha todos os campos.",
+    "date": "Data",
+    "location": "Local"
+  },
+  "blog": {
+    "heroTitle": "Blog",
+    "heroSubtitle": "Notícias, artigos e histórias sobre nossos projetos e iniciativas.",
+    "categories": ["Educação", "Projetos", "Voluntariado", "Histórias"],
+    "featuredTitle": "Destaque",
+    "recentPostsTitle": "Artigos Recentes",
+    "newsletterTitle": "Inscreva-se em Nossa Newsletter",
+    "newsletterDescription": "Receba as últimas notícias, artigos e atualizações sobre nossos projetos diretamente em seu email."
+  },
+  "eventos": {
+    "heroTitle": "Eventos",
+    "heroSubtitle": "Confira nossa agenda de eventos, workshops e atividades.",
+    "categories": ["Workshops", "Palestras", "Feiras", "Ações Sociais"],
+    "featuredTitle": "Próximo Evento",
+    "calendarTitle": "Calendário de Eventos",
+    "pastEventsTitle": "Eventos Anteriores",
+    "ctaTitle": "Quer Propor um Evento?",
+    "ctaDescription": "Se você tem uma ideia para um evento ou atividade que se alinha com nossa missão, entre em contato conosco."
+  },
+  "sobre": {
+    "heroTitle": "Sobre Nós",
+    "heroSubtitle": "Conheça nossa história, missão e valores.",
+    "historyTitle": "Nossa História",
+    "valuesTitle": "Nossos Valores",
+    "teamTitle": "Nossa Equipe",
+    "partnersTitle": "Nossos Parceiros",
+    "ctaTitle": "Faça Parte da Nossa História",
+    "ctaDescription": "Junte-se a nós na missão de transformar vidas através da educação e projetos sociais."
+  },
+  "projects": {
+    "heroTitle": "Nossos Projetos",
+    "heroSubtitle": "Conheça as iniciativas que estão transformando vidas e comunidades.",
+    "categories": ["Educação", "Cultura", "Meio Ambiente", "Cidadania"],
+    "impactTitle": "Nosso Impacto",
+    "ctaTitle": "Quer Apoiar Nossos Projetos?",
+    "ctaDescription": "Sua contribuição pode fazer a diferença na vida de muitas pessoas."
+  },
+  "contact": {
+    "heroTitle": "Entre em Contato",
+    "heroSubtitle": "Estamos à disposição para esclarecer dúvidas e receber sugestões.",
+    "formTitle": "Envie uma Mensagem",
+    "addressTitle": "Endereço",
+    "contactInfoTitle": "Informações de Contato"
+  },
+  "common": {
+    "readMore": "Leia mais",
+    "learnMore": "Saiba mais",
+    "signUp": "Inscrever-se",
+    "submit": "Enviar",
+    "seeAll": "Ver todos",
+    "menu": "Menu",
+    "close": "Fechar",
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem"
+  },
+  "header": {
+    "home": "INÍCIO",
+    "events": "EVENTOS",
+    "projects": "PROJETOS",
+    "blog": "BLOG",
+    "about": "SOBRE",
+    "contact": "CONTATO"
+  }
+}

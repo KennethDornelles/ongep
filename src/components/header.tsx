@@ -5,9 +5,12 @@ import Link from "next/link"
 import { ReactNode } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const t = useTranslations('header');
+  const commonT = useTranslations('common');
 
   // Fecha o menu ao clicar em qualquer link do menu mobile
   function handleNavClick() {
@@ -29,13 +32,13 @@ export default function Header() {
         <div className="w-full flex md:hidden">
           <button
             className="ml-4 mt-4 z-50 flex items-center gap-2 p-2 rounded-full bg-[#b3b3b3]/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white transition-all"
-            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-label={isMenuOpen ? commonT('close') : commonT('menu')}
             onClick={() => setIsMenuOpen((v) => !v)}
             type="button"
           >
             {isMenuOpen ? <X className="h-7 w-7 text-white" /> : <Menu className="h-7 w-7 text-white" />}
             <span className="text-white text-base font-medium select-none block">
-              {isMenuOpen ? 'Fechar' : 'Menu'}
+              {isMenuOpen ? commonT('close') : commonT('menu')}
             </span>
           </button>
         </div>
@@ -48,10 +51,12 @@ export default function Header() {
             } md:static md:bg-transparent md:py-0 md:px-0 md:shadow-none`
           }
         >
-          <NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>INÍCIO</NavLink>
-          <NavLink href="/horarios" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>HORÁRIOS</NavLink>
-          <NavLink href="/aprovados" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>APROVADOS DA ONGEP</NavLink>
-          <NavLink href="/como-ajudar" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>COMO AJUDAR</NavLink>
+          <NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('home')}</NavLink>
+          <NavLink href="/eventos" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('events')}</NavLink>
+          <NavLink href="/projects" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('projects')}</NavLink>
+          <NavLink href="/blog" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('blog')}</NavLink>
+          <NavLink href="/sobre" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('about')}</NavLink>
+          <NavLink href="/contact" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('contact')}</NavLink>
         </nav>
       </div>
     </header>
