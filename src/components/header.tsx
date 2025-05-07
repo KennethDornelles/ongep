@@ -9,8 +9,16 @@ import { useTranslations } from "next-intl"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const t = useTranslations('header');
-  const commonT = useTranslations('common');
+  // Usamos try/catch para evitar erros se o contexto não estiver disponível
+  let t, commonT;
+  try {
+    t = useTranslations('header');
+    commonT = useTranslations('common');
+  } catch (e) {
+    // Fallback para traduções caso o contexto não esteja disponível
+    t = (key: string) => key;
+    commonT = (key: string) => key;
+  }
 
   // Fecha o menu ao clicar em qualquer link do menu mobile
   function handleNavClick() {
