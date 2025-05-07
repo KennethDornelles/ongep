@@ -20,27 +20,30 @@ export default function Header() {
         <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-2 drop-shadow-lg">
           ONGEP - Organização Não-Governamental para a Educação Popular
         </h1>
-        <span className="text-white text-lg font-medium mb-8"></span>
+        <span className="text-white text-lg font-medium mb-8">Páginas</span>
         {/* Overlay para bloquear interação e escurecer fundo quando menu está aberto */}
         {isMenuOpen && (
           <div className="fixed inset-0 z-40 bg-black bg-opacity-70 md:hidden" aria-hidden="true"></div>
         )}
-        {/* Botão hamburguer com texto sempre visível na tela */}
-        <button
-          className="md:hidden fixed left-4 top-6 z-50 flex items-center gap-2 p-2 rounded-full bg-[#b3b3b3]/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white transition-all"
-          aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-          onClick={() => setIsMenuOpen((v) => !v)}
-        >
-          {isMenuOpen ? <X className="h-7 w-7 text-white" /> : <Menu className="h-7 w-7 text-white" />}
-          <span className="text-white text-base font-medium select-none block">
-            {isMenuOpen ? 'Fechar' : 'Menu'}
-          </span>
-        </button>
+        {/* Botão hamburguer posicionado abaixo do header, à esquerda, apenas em mobile */}
+        <div className="w-full flex md:hidden">
+          <button
+            className="ml-4 mt-4 z-50 flex items-center gap-2 p-2 rounded-full bg-[#b3b3b3]/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white transition-all"
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            onClick={() => setIsMenuOpen((v) => !v)}
+            type="button"
+          >
+            {isMenuOpen ? <X className="h-7 w-7 text-white" /> : <Menu className="h-7 w-7 text-white" />}
+            <span className="text-white text-base font-medium select-none block">
+              {isMenuOpen ? 'Fechar' : 'Menu'}
+            </span>
+          </button>
+        </div>
         {/* Menu de navegação */}
         <nav
           className={
             `md:flex flex-row gap-8 justify-center items-center bg-transparent ${isMenuOpen
-              ? 'flex flex-col fixed left-0 top-0 w-full h-full bg-neutral-900 bg-opacity-100 py-8 px-6 shadow-2xl z-50'
+              ? 'flex flex-col fixed left-0 top-[100px] w-full bg-neutral-900 bg-opacity-100 py-8 px-6 shadow-2xl z-50'
               : 'hidden'
             } md:static md:bg-transparent md:py-0 md:px-0 md:shadow-none`
           }
