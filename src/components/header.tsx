@@ -9,6 +9,11 @@ import { Menu, X } from "lucide-react"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // Fecha o menu ao clicar em qualquer link do menu mobile
+  function handleNavClick() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <header className="bg-[#b3b3b3] py-10 flex flex-col items-center relative">
       <div className="flex flex-col items-center w-full relative">
@@ -16,9 +21,13 @@ export default function Header() {
           ONGEP - Organização Não-Governamental para a Educação Popular
         </h1>
         <span className="text-white text-lg font-medium mb-8"></span>
+        {/* Overlay para bloquear interação e escurecer fundo quando menu está aberto */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-40 bg-black bg-opacity-70 md:hidden" aria-hidden="true"></div>
+        )}
         {/* Botão hamburguer com texto sempre visível na tela */}
         <button
-          className="md:hidden absolute left-4 top-[100%] mt-4 z-40 flex items-center gap-2 p-2 rounded-full bg-[#b3b3b3]/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white transition-all"
+          className="md:hidden fixed left-4 top-6 z-50 flex items-center gap-2 p-2 rounded-full bg-[#b3b3b3]/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white transition-all"
           aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setIsMenuOpen((v) => !v)}
         >
@@ -31,26 +40,26 @@ export default function Header() {
         <nav
           className={
             `md:flex flex-row gap-8 justify-center items-center bg-transparent ${isMenuOpen
-              ? 'flex flex-col absolute left-0 top-[100%] mt-6 w-full bg-neutral-900 bg-opacity-95 py-8 px-6 shadow-2xl z-50'
+              ? 'flex flex-col fixed left-0 top-0 w-full h-full bg-neutral-900 bg-opacity-100 py-8 px-6 shadow-2xl z-50'
               : 'hidden'
             } md:static md:bg-transparent md:py-0 md:px-0 md:shadow-none`
           }
         >
-          <NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold">INÍCIO</NavLink>
-          <NavLink href="/horarios" activeClassName="border-b-2 border-white text-white font-bold">HORÁRIOS</NavLink>
-          <NavLink href="/aprovados" activeClassName="border-b-2 border-white text-white font-bold">APROVADOS DA ONGEP</NavLink>
-          <NavLink href="/como-ajudar" activeClassName="border-b-2 border-white text-white font-bold">COMO AJUDAR</NavLink>
+          <NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>INÍCIO</NavLink>
+          <NavLink href="/horarios" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>HORÁRIOS</NavLink>
+          <NavLink href="/aprovados" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>APROVADOS DA ONGEP</NavLink>
+          <NavLink href="/como-ajudar" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>COMO AJUDAR</NavLink>
         </nav>
       </div>
     </header>
   )
 }
 
-function NavLink({ href, children, activeClassName }: { href: string; children: ReactNode; activeClassName: string }) {
+function NavLink({ href, children, activeClassName, onClick }: { href: string; children: ReactNode; activeClassName: string; onClick?: () => void }) {
   const pathname = usePathname()
   const isActive = pathname === href
   return (
-    <Link href={href} className={`text-white text-lg px-4 py-2 transition-colors ${isActive ? activeClassName : 'opacity-80 hover:opacity-100'}`}>
+    <Link href={href} className={`text-white text-lg px-4 py-2 transition-colors ${isActive ? activeClassName : 'opacity-80 hover:opacity-100'}`} onClick={onClick}>
       {children}
     </Link>
   )
