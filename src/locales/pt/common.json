@@ -34,13 +34,78 @@
     "contactFormError": "Erro ao enviar. Tente novamente.",
     "contactFormIncomplete": "Preencha todos os campos.",
     "date": "Data",
-    "location": "Local"
+    "location": "Local",
+    "contact": {
+      "phone": "(00) 1234-5678",
+      "email": "contato@ongep.org",
+      "address": "Av. Principal, 123 - Centro<br />CEP: 00000-000"
+    },
+    "projects": {
+      "categories": ["Educação", "Cultura", "Meio Ambiente"],
+      "education": {
+        "project1": {
+          "title": "Educação para Todos",
+          "description": "Aulas de reforço escolar para crianças e adolescentes em comunidades carentes."
+        },
+        "project2": {
+          "title": "Inclusão Digital",
+          "description": "Cursos de informática básica e avançada para jovens e adultos."
+        }
+      },
+      "culture": {
+        "project1": {
+          "title": "Arte nas Escolas",
+          "description": "Oficinas de artes visuais, música e teatro para crianças e adolescentes."
+        },
+        "project2": {
+          "title": "Cultura Popular",
+          "description": "Valorização e resgate de manifestações culturais locais."
+        }
+      },
+      "environment": {
+        "project1": {
+          "title": "Reciclagem Criativa",
+          "description": "Oficinas de reaproveitamento e reciclagem de materiais."
+        },
+        "project2": {
+          "title": "Horta Comunitária",
+          "description": "Cultivo de alimentos orgânicos em espaços comunitários."
+        }
+      }
+    },
+    "events": {
+      "event1": {
+        "title": "Workshop de Educação Ambiental",
+        "date": "15 de Maio, 2025",
+        "location": "Centro Comunitário"
+      },
+      "event2": {
+        "title": "Feira de Artesanato Solidário",
+        "date": "22 de Junho, 2025",
+        "location": "Praça Central"
+      },
+      "event3": {
+        "title": "Seminário de Educação Inclusiva",
+        "date": "10 de Julho, 2025",
+        "location": "Auditório Municipal"
+      },
+      "seeAllButton": "Ver Calendário Completo"
+    }
   },
   "blog": {
     "heroTitle": "Blog",
     "heroSubtitle": "Notícias, artigos e histórias sobre nossos projetos e iniciativas.",
     "categories": ["Educação", "Projetos", "Voluntariado", "Histórias"],
     "featuredTitle": "Destaque",
+    "featuredPostAlt": "Artigo em destaque",
+    "allPosts": "Todos os Artigos",
+    "featuredPost": {
+      "title": "O Impacto da Educação na Transformação Social",
+      "excerpt": "Neste artigo, exploramos como a educação pode ser uma ferramenta poderosa para a transformação social e como nossos projetos estão contribuindo para essa mudança em comunidades vulneráveis.",
+      "date": "15 de Maio, 2025",
+      "author": "Admin"
+    },
+    "readFullArticle": "Ler Artigo Completo",
     "recentPostsTitle": "Artigos Recentes",
     "newsletterTitle": "Inscreva-se em Nossa Newsletter",
     "newsletterDescription": "Receba as últimas notícias, artigos e atualizações sobre nossos projetos diretamente em seu email."
@@ -48,37 +113,126 @@
   "eventos": {
     "heroTitle": "Eventos",
     "heroSubtitle": "Confira nossa agenda de eventos, workshops e atividades.",
+    "allEvents": "Todos os Eventos",
     "categories": ["Workshops", "Palestras", "Feiras", "Ações Sociais"],
     "featuredTitle": "Próximo Evento",
+    "featuredEventAlt": "Evento em destaque",
+    "workshopLabel": "Workshop",
+    "featuredEvent": {
+      "title": "Workshop de Educação Ambiental",
+      "dateTime": "15 de Maio, 2025 | 14:00 - 17:00",
+      "location": "Centro Comunitário - Av. Principal, 123",
+      "capacity": "Vagas limitadas: 30 pessoas",
+      "description": "Aprenda sobre práticas sustentáveis e como implementar projetos de educação ambiental em sua comunidade. Atividades práticas e material didático incluídos."
+    },
     "calendarTitle": "Calendário de Eventos",
+    "calendarDescription": "Confira nossa programação completa e participe das atividades",
     "pastEventsTitle": "Eventos Anteriores",
+    "viewAllPastEvents": "Ver Todos os Eventos Anteriores",
+    "viewGallery": "Ver Galeria",
     "ctaTitle": "Quer Propor um Evento?",
-    "ctaDescription": "Se você tem uma ideia para um evento ou atividade que se alinha com nossa missão, entre em contato conosco."
+    "ctaDescription": "Se você tem uma ideia para um evento ou atividade que se alinha com nossa missão, entre em contato conosco",
+    "contactButton": "Entre em Contato",
+    "months": {
+      "may": "Maio",
+      "june": "Junho"
+    }
   },
   "sobre": {
     "heroTitle": "Sobre Nós",
-    "heroSubtitle": "Conheça nossa história, missão e valores.",
+    "heroSubtitle": "Conheça nossa história, missão e valores",
     "historyTitle": "Nossa História",
+    "historyImageAlt": "História da ONGEP",
+    "historyParagraph1": "A ONGEP foi fundada em 2010 por um grupo de educadores e assistentes sociais preocupados com a falta de oportunidades educacionais em comunidades carentes. O que começou como um pequeno projeto de reforço escolar em uma única comunidade, cresceu e se transformou em uma organização com múltiplos projetos e iniciativas.",
+    "historyParagraph2": "Ao longo dos anos, expandimos nossa atuação para incluir não apenas educação formal, mas também projetos culturais, ambientais e de desenvolvimento comunitário. Nossa abordagem sempre foi baseada na participação ativa da comunidade e no respeito às particularidades locais.",
+    "historyParagraph3": "Hoje, a ONGEP é reconhecida por seu trabalho de excelência e pelo impacto positivo que gera nas comunidades onde atua, tendo beneficiado mais de 5.000 pessoas diretamente através de seus programas.",
     "valuesTitle": "Nossos Valores",
+    "valuesSubtitle": "Princípios que guiam nossas ações e decisões",
+    "values": [
+      {
+        "title": "Inclusão",
+        "description": "Acreditamos que todos merecem oportunidades iguais, independentemente de sua origem ou condição social."
+      },
+      {
+        "title": "Excelência",
+        "description": "Buscamos a qualidade em tudo o que fazemos, com compromisso e responsabilidade."
+      },
+      {
+        "title": "Inovação",
+        "description": "Estamos sempre em busca de novas ideias e abordagens para enfrentar os desafios sociais."
+      },
+      {
+        "title": "Sustentabilidade",
+        "description": "Trabalhamos para criar soluções duradouras que possam continuar gerando impacto positivo ao longo do tempo."
+      }
+    ],
     "teamTitle": "Nossa Equipe",
+    "teamSubtitle": "Conheça os profissionais dedicados que fazem a ONGEP acontecer",
+    "team": [
+      {
+        "name": "Maria Silva",
+        "role": "Diretora Executiva",
+        "bio": "Educadora com mais de 15 anos de experiência em projetos sociais."
+      },
+      {
+        "name": "João Santos",
+        "role": "Coordenador de Projetos",
+        "bio": "Especialista em gestão de projetos sociais e desenvolvimento comunitário."
+      },
+      {
+        "name": "Ana Oliveira",
+        "role": "Coordenadora Pedagógica",
+        "bio": "Pedagoga com foco em metodologias inovadoras de ensino."
+      }
+    ],
+    "viewAllTeam": "Conheça Toda a Equipe",
     "partnersTitle": "Nossos Parceiros",
+    "partnersSubtitle": "Organizações que acreditam em nosso trabalho e nos ajudam a fazer a diferença",
+    "partner": "Parceiro",
     "ctaTitle": "Faça Parte da Nossa História",
-    "ctaDescription": "Junte-se a nós na missão de transformar vidas através da educação e projetos sociais."
+    "ctaDescription": "Junte-se a nós na missão de transformar vidas através da educação e projetos sociais",
+    "volunteerButton": "Seja Voluntário",
+    "donateButton": "Faça uma Doação"
   },
   "projects": {
     "heroTitle": "Nossos Projetos",
     "heroSubtitle": "Conheça as iniciativas que estão transformando vidas e comunidades.",
+    "allProjects": "Todos os Projetos",
     "categories": ["Educação", "Cultura", "Meio Ambiente", "Cidadania"],
     "impactTitle": "Nosso Impacto",
+    "impactDescription": "Números que representam nossa contribuição para um mundo melhor",
+    "impact": [
+      {
+        "number": "5.000+",
+        "text": "Pessoas beneficiadas"
+      },
+      {
+        "number": "20+",
+        "text": "Projetos realizados"
+      },
+      {
+        "number": "15",
+        "text": "Comunidades atendidas"
+      },
+      {
+        "number": "10+",
+        "text": "Anos de atuação"
+      }
+    ],
     "ctaTitle": "Quer Apoiar Nossos Projetos?",
-    "ctaDescription": "Sua contribuição pode fazer a diferença na vida de muitas pessoas."
+    "ctaDescription": "Sua contribuição pode fazer a diferença na vida de muitas pessoas.",
+    "donateButton": "Faça uma Doação",
+    "partnerButton": "Seja um Parceiro",
+    "viewDetails": "Ver Detalhes"
   },
   "contact": {
     "heroTitle": "Entre em Contato",
     "heroSubtitle": "Estamos à disposição para esclarecer dúvidas e receber sugestões.",
     "formTitle": "Envie uma Mensagem",
     "addressTitle": "Endereço",
-    "contactInfoTitle": "Informações de Contato"
+    "contactInfoTitle": "Informações de Contato",
+    "mapPlaceholder": "Mapa será exibido aqui",
+    "ctaMessage": "Também estamos disponíveis em nossas redes sociais e pelo WhatsApp."
   },
   "common": {
     "readMore": "Leia mais",
@@ -99,5 +253,24 @@
     "blog": "BLOG",
     "about": "SOBRE",
     "contact": "CONTATO"
+  },
+  "footer": {
+    "aboutTitle": "Sobre a ONGEP",
+    "aboutDescription": "Organização Não-Governamental dedicada à educação popular e desenvolvimento de projetos sociais em comunidades carentes.",
+    "quickLinksTitle": "Links Rápidos",
+    "home": "Início",
+    "about": "Sobre Nós",
+    "projects": "Projetos",
+    "events": "Eventos",
+    "blog": "Blog",
+    "contact": "Contato",
+    "contactTitle": "Contato",
+    "address": "Av. Principal, 123 - Centro",
+    "zipCode": "CEP: 00000-000",
+    "phone": "Tel: (00) 1234-5678",
+    "email": "contato@ongep.org",
+    "newsletterTitle": "Newsletter",
+    "newsletterDescription": "Inscreva-se para receber atualizações sobre nossos projetos e eventos.",
+    "copyright": "ONGEP - Organização Não-Governamental para a Educação Popular. Todos os direitos reservados."
   }
 }

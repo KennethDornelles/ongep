@@ -9,14 +9,16 @@ import { subscribeToNewsletter } from "@/domains/newsletter/services/newsletterS
 
 export default function Footer() {
     // Usando try/catch para aumentar a robustez do componente
-    let t, commonT;
+    let t, commonT, footerT;
     try {
         t = useTranslations('home');
         commonT = useTranslations('common');
+        footerT = useTranslations('footer');
     } catch (e) {
         // Fallback para traduções caso o contexto não esteja disponível
         t = (key: string) => key;
         commonT = (key: string) => key;
+        footerT = (key: string) => key;
     }
 
     // Newsletter state
@@ -49,10 +51,9 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Sobre */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4">Sobre a ONGEP</h3>
+                        <h3 className="text-xl font-semibold mb-4">{footerT('aboutTitle')}</h3>
                         <p className="text-gray-400 mb-4">
-                            Organização Não-Governamental dedicada à educação popular e desenvolvimento
-                            de projetos sociais em comunidades carentes.
+                            {footerT('aboutDescription')}
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="text-white hover:text-emerald-400">
@@ -92,36 +93,36 @@ export default function Footer() {
 
                     {/* Links Rápidos */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4">Links Rápidos</h3>
+                        <h3 className="text-xl font-semibold mb-4">{footerT('quickLinksTitle')}</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/" className="text-gray-400 hover:text-emerald-400">
-                                    Home
+                                    {footerT('home')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/sobre" className="text-gray-400 hover:text-emerald-400">
-                                    Sobre Nós
+                                    {footerT('about')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/projects" className="text-gray-400 hover:text-emerald-400">
-                                    Projetos
+                                    {footerT('projects')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/eventos" className="text-gray-400 hover:text-emerald-400">
-                                    Eventos
+                                    {footerT('events')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/blog" className="text-gray-400 hover:text-emerald-400">
-                                    Blog
+                                    {footerT('blog')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/contact" className="text-gray-400 hover:text-emerald-400">
-                                    Contato
+                                    {footerT('contact')}
                                 </Link>
                             </li>
                         </ul>
@@ -129,22 +130,22 @@ export default function Footer() {
 
                     {/* Contato */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4">Contato</h3>
+                        <h3 className="text-xl font-semibold mb-4">{footerT('contactTitle')}</h3>
                         <address className="not-italic text-gray-400 space-y-3">
-                            <p>Av. Principal, 123 - Centro</p>
-                            <p>CEP: 00000-000</p>
-                            <p>Tel: (00) 1234-5678</p>
+                            <p>{footerT('address')}</p>
+                            <p>{footerT('zipCode')}</p>
+                            <p>{footerT('phone')}</p>
                             <p className="flex items-center">
-                                <Mail className="w-4 h-4 mr-2" /> contato@ongep.org
+                                <Mail className="w-4 h-4 mr-2" /> {footerT('email')}
                             </p>
                         </address>
                     </div>
 
                     {/* Newsletter */}
                     <div>
-                        <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
+                        <h3 className="text-xl font-semibold mb-4">{footerT('newsletterTitle')}</h3>
                         <p className="text-gray-400 mb-4">
-                            Inscreva-se para receber atualizações sobre nossos projetos e eventos.
+                            {footerT('newsletterDescription')}
                         </p>
                         <form onSubmit={handleNewsletter} className="space-y-4">
                             <div>
@@ -153,7 +154,7 @@ export default function Footer() {
                                     type="email"
                                     value={newsletterEmail}
                                     onChange={(e) => setNewsletterEmail(e.target.value)}
-                                    placeholder="Seu e-mail"
+                                    placeholder={t('newsletterPlaceholder')}
                                     className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                     required
                                 />
@@ -164,7 +165,7 @@ export default function Footer() {
                                 </div>
                             )}
                             <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
-                                Inscrever-se
+                                {t('newsletterSubmit')}
                             </Button>
                         </form>
                     </div>
@@ -173,7 +174,7 @@ export default function Footer() {
                 {/* Linha divisória */}
                 <div className="border-t border-gray-800 pt-6">
                     <p className="text-center text-gray-500 text-sm">
-                        © {new Date().getFullYear()} ONGEP - Organização Não-Governamental para a Educação Popular. Todos os direitos reservados.
+                        © {new Date().getFullYear()} {footerT('copyright')}
                     </p>
                 </div>
             </div>

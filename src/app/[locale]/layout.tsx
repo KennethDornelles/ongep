@@ -5,8 +5,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
-    const locale = params.locale;
-    const translations = await getTranslations({ locale, namespace: "common" });
+    const { locale } = await Promise.resolve(params);
+    const translations = await getTranslations({ locale });
     return {
         title: translations("title")
     };
@@ -19,7 +19,7 @@ export default async function LocaleLayout({
     children: ReactNode;
     params: { locale: string };
 }) {
-    const locale = params.locale;
+    const { locale } = await Promise.resolve(params);
     const messages = await getMessages({ locale });
 
     return (

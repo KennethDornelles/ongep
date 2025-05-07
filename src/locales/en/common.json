@@ -34,13 +34,78 @@
     "contactFormError": "Error sending message. Please try again.",
     "contactFormIncomplete": "Please fill in all fields.",
     "date": "Date",
-    "location": "Location"
+    "location": "Location",
+    "contact": {
+      "phone": "(00) 1234-5678",
+      "email": "contact@ongep.org",
+      "address": "Main Ave., 123 - Downtown<br />ZIP: 00000-000"
+    },
+    "projects": {
+      "categories": ["Education", "Culture", "Environment"],
+      "education": {
+        "project1": {
+          "title": "Education for All",
+          "description": "Tutoring classes for children and teens in underprivileged communities."
+        },
+        "project2": {
+          "title": "Digital Inclusion",
+          "description": "Basic and advanced computer courses for youth and adults."
+        }
+      },
+      "culture": {
+        "project1": {
+          "title": "Arts in Schools",
+          "description": "Visual arts, music, and theater workshops for children and teens."
+        },
+        "project2": {
+          "title": "Popular Culture",
+          "description": "Appreciation and rescue of local cultural manifestations."
+        }
+      },
+      "environment": {
+        "project1": {
+          "title": "Creative Recycling",
+          "description": "Workshops on reuse and recycling of materials."
+        },
+        "project2": {
+          "title": "Community Garden",
+          "description": "Growing organic food in community spaces."
+        }
+      }
+    },
+    "events": {
+      "event1": {
+        "title": "Environmental Education Workshop",
+        "date": "May 15, 2025",
+        "location": "Community Center"
+      },
+      "event2": {
+        "title": "Solidarity Craft Fair",
+        "date": "June 22, 2025",
+        "location": "Central Square"
+      },
+      "event3": {
+        "title": "Inclusive Education Seminar",
+        "date": "July 10, 2025",
+        "location": "Municipal Auditorium"
+      },
+      "seeAllButton": "View Complete Calendar"
+    }
   },
   "blog": {
     "heroTitle": "Blog",
     "heroSubtitle": "News, articles, and stories about our projects and initiatives.",
     "categories": ["Education", "Projects", "Volunteering", "Stories"],
-    "featuredTitle": "Highlight",
+    "featuredTitle": "Featured",
+    "featuredPostAlt": "Featured article",
+    "allPosts": "All Articles",
+    "featuredPost": {
+      "title": "The Impact of Education on Social Transformation",
+      "excerpt": "In this article, we explore how education can be a powerful tool for social transformation and how our projects are contributing to this change in vulnerable communities.",
+      "date": "May 15, 2025",
+      "author": "Admin"
+    },
+    "readFullArticle": "Read Full Article",
     "recentPostsTitle": "Recent Articles",
     "newsletterTitle": "Subscribe to Our Newsletter",
     "newsletterDescription": "Receive the latest news, articles, and updates about our projects directly in your email."
@@ -48,37 +113,126 @@
   "eventos": {
     "heroTitle": "Events",
     "heroSubtitle": "Check out our schedule of events, workshops, and activities.",
+    "allEvents": "All Events",
     "categories": ["Workshops", "Lectures", "Fairs", "Social Actions"],
     "featuredTitle": "Next Event",
+    "featuredEventAlt": "Featured event",
+    "workshopLabel": "Workshop",
+    "featuredEvent": {
+      "title": "Environmental Education Workshop",
+      "dateTime": "May 15, 2025 | 2:00 PM - 5:00 PM",
+      "location": "Community Center - Main Ave., 123",
+      "capacity": "Limited seats: 30 people",
+      "description": "Learn about sustainable practices and how to implement environmental education projects in your community. Practical activities and teaching materials included."
+    },
     "calendarTitle": "Event Calendar",
+    "calendarDescription": "Check out our complete schedule and participate in the activities",
     "pastEventsTitle": "Past Events",
+    "viewAllPastEvents": "View All Past Events",
+    "viewGallery": "View Gallery",
     "ctaTitle": "Want to Propose an Event?",
-    "ctaDescription": "If you have an idea for an event or activity that aligns with our mission, contact us."
+    "ctaDescription": "If you have an idea for an event or activity that aligns with our mission, contact us",
+    "contactButton": "Contact Us",
+    "months": {
+      "may": "May",
+      "june": "June"
+    }
   },
   "sobre": {
     "heroTitle": "About Us",
-    "heroSubtitle": "Learn about our history, mission, and values.",
+    "heroSubtitle": "Learn about our history, mission, and values",
     "historyTitle": "Our History",
+    "historyImageAlt": "ONGEP History",
+    "historyParagraph1": "ONGEP was founded in 2010 by a group of educators and social workers concerned about the lack of educational opportunities in underprivileged communities. What began as a small tutoring project in a single community has grown and transformed into an organization with multiple projects and initiatives.",
+    "historyParagraph2": "Over the years, we expanded our work to include not only formal education but also cultural, environmental, and community development projects. Our approach has always been based on active community participation and respect for local particularities.",
+    "historyParagraph3": "Today, ONGEP is recognized for its excellent work and the positive impact it generates in the communities where it operates, having directly benefited more than 5,000 people through its programs.",
     "valuesTitle": "Our Values",
+    "valuesSubtitle": "Principles that guide our actions and decisions",
+    "values": [
+      {
+        "title": "Inclusion",
+        "description": "We believe everyone deserves equal opportunities, regardless of their origin or social status."
+      },
+      {
+        "title": "Excellence",
+        "description": "We seek quality in everything we do, with commitment and responsibility."
+      },
+      {
+        "title": "Innovation",
+        "description": "We are always looking for new ideas and approaches to address social challenges."
+      },
+      {
+        "title": "Sustainability",
+        "description": "We work to create lasting solutions that can continue to generate positive impact over time."
+      }
+    ],
     "teamTitle": "Our Team",
+    "teamSubtitle": "Meet the dedicated professionals who make ONGEP happen",
+    "team": [
+      {
+        "name": "Maria Silva",
+        "role": "Executive Director",
+        "bio": "Educator with over 15 years of experience in social projects."
+      },
+      {
+        "name": "João Santos",
+        "role": "Project Coordinator",
+        "bio": "Specialist in social project management and community development."
+      },
+      {
+        "name": "Ana Oliveira",
+        "role": "Pedagogical Coordinator",
+        "bio": "Educator focused on innovative teaching methodologies."
+      }
+    ],
+    "viewAllTeam": "Meet the Entire Team",
     "partnersTitle": "Our Partners",
+    "partnersSubtitle": "Organizations that believe in our work and help us make a difference",
+    "partner": "Partner",
     "ctaTitle": "Be Part of Our Story",
-    "ctaDescription": "Join us in the mission to transform lives through education and social projects."
+    "ctaDescription": "Join us in the mission to transform lives through education and social projects",
+    "volunteerButton": "Become a Volunteer",
+    "donateButton": "Make a Donation"
   },
   "projects": {
     "heroTitle": "Our Projects",
     "heroSubtitle": "Discover the initiatives that are transforming lives and communities.",
+    "allProjects": "All Projects",
     "categories": ["Education", "Culture", "Environment", "Citizenship"],
     "impactTitle": "Our Impact",
+    "impactDescription": "Numbers that represent our contribution to a better world",
+    "impact": [
+      {
+        "number": "5,000+",
+        "text": "People benefited"
+      },
+      {
+        "number": "20+",
+        "text": "Projects completed"
+      },
+      {
+        "number": "15",
+        "text": "Communities reached"
+      },
+      {
+        "number": "10+",
+        "text": "Years of operation"
+      }
+    ],
     "ctaTitle": "Want to Support Our Projects?",
-    "ctaDescription": "Your contribution can make a difference in the lives of many people."
+    "ctaDescription": "Your contribution can make a difference in the lives of many people.",
+    "donateButton": "Make a Donation",
+    "partnerButton": "Become a Partner",
+    "viewDetails": "View Details"
   },
   "contact": {
     "heroTitle": "Contact Us",
     "heroSubtitle": "We are available to answer questions and receive suggestions.",
     "formTitle": "Send a Message",
     "addressTitle": "Address",
-    "contactInfoTitle": "Contact Information"
+    "contactInfoTitle": "Contact Information",
+    "mapPlaceholder": "Map will be displayed here",
+    "ctaMessage": "We are also available on our social networks and through WhatsApp."
   },
   "common": {
     "readMore": "Read more",
@@ -99,5 +253,24 @@
     "blog": "BLOG",
     "about": "ABOUT",
     "contact": "CONTACT"
+  },
+  "footer": {
+    "aboutTitle": "About ONGEP",
+    "aboutDescription": "Non-Governmental Organization dedicated to popular education and development of social projects in underprivileged communities.",
+    "quickLinksTitle": "Quick Links",
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "events": "Events",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contactTitle": "Contact",
+    "address": "Main Ave., 123 - Downtown",
+    "zipCode": "ZIP: 00000-000",
+    "phone": "Phone: (00) 1234-5678",
+    "email": "contact@ongep.org",
+    "newsletterTitle": "Newsletter",
+    "newsletterDescription": "Subscribe to receive updates about our projects and events.",
+    "copyright": "ONGEP - Non-Governmental Organization for Popular Education. All rights reserved."
   }
 }

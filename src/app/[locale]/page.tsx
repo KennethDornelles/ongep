@@ -78,16 +78,16 @@ export default function Home() {
             {/* Hero Section - Área verde escura com o título ONGEP e subtítulo */}
             <section className="relative w-full h-[500px] bg-emerald-900 flex items-center justify-center text-white">
                 <div className="container mx-auto px-4 z-20 text-center">
-                    <h1 className="text-4xl md:text-7xl font-bold mb-6">ONGEP</h1>
+                    <h1 className="text-4xl md:text-7xl font-bold mb-6">{t('heroTitle')}</h1>
                     <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                        Organização Não Governamental para Educação e Projetos Sociais
+                        {t('heroSubtitle')}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button size="lg" className="bg-white text-emerald-900 hover:bg-gray-100">
-                            Conheça Nossos Projetos
+                            {t('seeProjectsButton')}
                         </Button>
                         <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                            Como Ajudar
+                            {t('howToHelpButton')}
                         </Button>
                     </div>
                 </div>
@@ -97,10 +97,10 @@ export default function Home() {
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Nossa Missão</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('missionTitle')}</h2>
                         <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
                         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                            Promover a educação, cultura e desenvolvimento social através de projetos que transformam vidas e comunidades.
+                            {t('missionDescription')}
                         </p>
                     </div>
 
@@ -109,9 +109,9 @@ export default function Home() {
                             <div className="rounded-full bg-emerald-100 w-16 h-16 flex items-center justify-center mb-4 mx-auto">
                                 <BookOpen className="h-8 w-8 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Educação</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">{t('educationTitle')}</h3>
                             <p className="text-gray-300">
-                                Promovemos acesso à educação de qualidade para crianças e jovens em situação de vulnerabilidade.
+                                {t('educationDescription')}
                             </p>
                         </div>
 
@@ -119,9 +119,9 @@ export default function Home() {
                             <div className="rounded-full bg-emerald-100 w-16 h-16 flex items-center justify-center mb-4 mx-auto">
                                 <Users className="h-8 w-8 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Comunidade</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">{t('communityTitle')}</h3>
                             <p className="text-gray-300">
-                                Fortalecemos comunidades através de projetos sociais que promovem cidadania e inclusão.
+                                {t('communityDescription')}
                             </p>
                         </div>
 
@@ -129,9 +129,9 @@ export default function Home() {
                             <div className="rounded-full bg-emerald-100 w-16 h-16 flex items-center justify-center mb-4 mx-auto">
                                 <HeartHandshake className="h-8 w-8 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Solidariedade</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">{t('solidarityTitle')}</h3>
                             <p className="text-gray-300">
-                                Incentivamos a cultura de voluntariado e doação para causas sociais importantes.
+                                {t('solidarityDescription')}
                             </p>
                         </div>
                     </div>
@@ -142,31 +142,37 @@ export default function Home() {
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Nossos Projetos</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('projectsTitle')}</h2>
                         <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
                         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                            Conheça as iniciativas que estão transformando vidas e comunidades
+                            {t('projectsDescription')}
                         </p>
                     </div>
 
                     {/* Tabs de categorias de projetos */}
                     <Tabs defaultValue="educacao" className="mb-8">
                         <TabsList className="grid w-full grid-cols-3">
-                            <TabsTrigger value="educacao" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">Educação</TabsTrigger>
-                            <TabsTrigger value="cultura" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">Cultura</TabsTrigger>
-                            <TabsTrigger value="meioambiente" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">Meio Ambiente</TabsTrigger>
+                            <TabsTrigger value="educacao" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">
+                                {t('projects.categories.0')}
+                            </TabsTrigger>
+                            <TabsTrigger value="cultura" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">
+                                {t('projects.categories.1')}
+                            </TabsTrigger>
+                            <TabsTrigger value="meioambiente" className="data-[state=active]:bg-emerald-900 data-[state=active]:text-white">
+                                {t('projects.categories.2')}
+                            </TabsTrigger>
                         </TabsList>
 
                         <TabsContent value="educacao" className="mt-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <ProjectCard
-                                    title="Educação para Todos"
-                                    description="Aulas de reforço escolar para crianças e adolescentes em comunidades carentes."
+                                    title={t('projects.education.project1.title')}
+                                    description={t('projects.education.project1.description')}
                                     image="/placeholder.jpg"
                                 />
                                 <ProjectCard
-                                    title="Inclusão Digital"
-                                    description="Cursos de informática básica e avançada para jovens e adultos."
+                                    title={t('projects.education.project2.title')}
+                                    description={t('projects.education.project2.description')}
                                     image="/placeholder.jpg"
                                 />
                             </div>
@@ -175,13 +181,13 @@ export default function Home() {
                         <TabsContent value="cultura" className="mt-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <ProjectCard
-                                    title="Arte nas Escolas"
-                                    description="Oficinas de artes visuais, música e teatro para crianças e adolescentes."
+                                    title={t('projects.culture.project1.title')}
+                                    description={t('projects.culture.project1.description')}
                                     image="/placeholder.jpg"
                                 />
                                 <ProjectCard
-                                    title="Cultura Popular"
-                                    description="Valorização e resgate de manifestações culturais locais."
+                                    title={t('projects.culture.project2.title')}
+                                    description={t('projects.culture.project2.description')}
                                     image="/placeholder.jpg"
                                 />
                             </div>
@@ -190,13 +196,13 @@ export default function Home() {
                         <TabsContent value="meioambiente" className="mt-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <ProjectCard
-                                    title="Reciclagem Criativa"
-                                    description="Oficinas de reaproveitamento e reciclagem de materiais."
+                                    title={t('projects.environment.project1.title')}
+                                    description={t('projects.environment.project1.description')}
                                     image="/placeholder.jpg"
                                 />
                                 <ProjectCard
-                                    title="Horta Comunitária"
-                                    description="Cultivo de alimentos orgânicos em espaços comunitários."
+                                    title={t('projects.environment.project2.title')}
+                                    description={t('projects.environment.project2.description')}
                                     image="/placeholder.jpg"
                                 />
                             </div>
@@ -206,7 +212,7 @@ export default function Home() {
                     <div className="text-center mt-10">
                         <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
                             <Link href="/projects" className="flex items-center">
-                                Ver Todos os Projetos <ArrowRight className="ml-2 h-4 w-4" />
+                                {commonT('seeAll')} <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>
                     </div>
@@ -217,32 +223,32 @@ export default function Home() {
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Próximos Eventos</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('eventsTitle')}</h2>
                         <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <EventCard
-                            title="Workshop de Educação Ambiental"
-                            date="15 de Maio, 2025"
-                            location="Centro Comunitário"
+                            title={t('events.event1.title')}
+                            date={t('events.event1.date')}
+                            location={t('events.event1.location')}
                         />
                         <EventCard
-                            title="Feira de Artesanato Solidário"
-                            date="22 de Junho, 2025"
-                            location="Praça Central"
+                            title={t('events.event2.title')}
+                            date={t('events.event2.date')}
+                            location={t('events.event2.location')}
                         />
                         <EventCard
-                            title="Seminário de Educação Inclusiva"
-                            date="10 de Julho, 2025"
-                            location="Auditório Municipal"
+                            title={t('events.event3.title')}
+                            date={t('events.event3.date')}
+                            location={t('events.event3.location')}
                         />
                     </div>
 
                     <div className="text-center mt-10">
                         <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
                             <Link href="/eventos" className="flex items-center">
-                                Ver Calendário Completo <Calendar className="ml-2 h-4 w-4" />
+                                {t('events.seeAllButton')} <Calendar className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>
                     </div>
@@ -253,10 +259,10 @@ export default function Home() {
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('contactTitle')}</h2>
                         <div className="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
                         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                            Estamos à disposição para esclarecer dúvidas e receber sugestões
+                            {t('contactDescription')}
                         </p>
                     </div>
 
@@ -265,18 +271,15 @@ export default function Home() {
                         <div className="bg-white p-8 rounded-lg shadow-md">
                             <div className="flex items-center mb-6">
                                 <Phone className="h-5 w-5 text-emerald-600 mr-3" />
-                                <p className="text-gray-600">(00) 1234-5678</p>
+                                <p className="text-gray-600">{t('contact.phone')}</p>
                             </div>
                             <div className="flex items-center mb-6">
                                 <Mail className="h-5 w-5 text-emerald-600 mr-3" />
-                                <p className="text-gray-600">contato@ongep.org</p>
+                                <p className="text-gray-600">{t('contact.email')}</p>
                             </div>
                             <div className="flex items-start">
                                 <MapPin className="h-5 w-5 text-emerald-600 mt-1 mr-3" />
-                                <p className="text-gray-600">
-                                    Av. Principal, 123 - Centro<br />
-                                    CEP: 00000-000
-                                </p>
+                                <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: t('contact.address') }} />
                             </div>
                         </div>
 
@@ -285,7 +288,7 @@ export default function Home() {
                             <form onSubmit={handleContact} className="space-y-6">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                                        Nome <span className="text-red-500">*</span>
+                                        {t('contactFormName')} <span className="text-red-500">*</span>
                                     </label>
                                     <input
                                         id="name"
@@ -298,7 +301,7 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                        Email <span className="text-red-500">*</span>
+                                        {t('contactFormEmail')} <span className="text-red-500">*</span>
                                     </label>
                                     <input
                                         id="email"
@@ -311,7 +314,7 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                                        Mensagem <span className="text-red-500">*</span>
+                                        {t('contactFormMessage')} <span className="text-red-500">*</span>
                                     </label>
                                     <textarea
                                         id="message"
@@ -332,7 +335,7 @@ export default function Home() {
                                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
                                     disabled={contactLoading}
                                 >
-                                    Enviar Mensagem
+                                    {t('contactFormSubmit')}
                                 </Button>
                             </form>
                         </div>
@@ -352,6 +355,8 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ title, description, image }: ProjectCardProps) {
+    const commonT = useTranslations('common');
+
     return (
         <Card className="overflow-hidden bg-black text-white">
             <div className="aspect-video relative bg-gray-200 flex items-center justify-center">
@@ -368,7 +373,7 @@ function ProjectCard({ title, description, image }: ProjectCardProps) {
                 <h3 className="text-xl font-semibold mb-2">{title}</h3>
                 <p className="text-gray-400 mb-4">{description}</p>
                 <Link href="#" className="text-emerald-400 hover:text-emerald-300 flex items-center text-sm">
-                    Saiba mais <ArrowRight className="ml-1 h-4 w-4" />
+                    {commonT('learnMore')} <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
             </CardContent>
         </Card>
@@ -382,6 +387,8 @@ interface EventCardProps {
 }
 
 function EventCard({ title, date, location }: EventCardProps) {
+    const t = useTranslations('home');
+
     return (
         <div className="bg-black p-6 rounded-md">
             <div className="flex justify-start mb-4">
@@ -391,13 +398,13 @@ function EventCard({ title, date, location }: EventCardProps) {
             </div>
             <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
             <div className="text-gray-400 text-sm mb-1">
-                <span className="text-gray-300">Data:</span> {date}
+                <span className="text-gray-300">{t('date')}:</span> {date}
             </div>
             <div className="text-gray-400 text-sm mb-6">
-                <span className="text-gray-300">Local:</span> {location}
+                <span className="text-gray-300">{t('location')}:</span> {location}
             </div>
             <Button variant="outline" size="sm" className="w-full border-emerald-400 text-emerald-400 hover:bg-emerald-900">
-                Inscrever-se
+                {t('registerButton')}
             </Button>
         </div>
     )
