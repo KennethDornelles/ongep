@@ -24,33 +24,25 @@ export default function Header() {
   function handleNavClick() {
     setIsMenuOpen(false);
   } return (
-    <header className="bg-[#e90c26] py-10 flex flex-col items-center relative overflow-hidden">      {/* Logo como marca d'água */}
-      <div
-        className="absolute inset-0 flex items-center justify-center opacity-20 overflow-hidden"
-        style={{
-          mixBlendMode: 'soft-light',
-          filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
-        }}
-      >
-        <picture>
-          <source srcSet="/ongep_watermark.svg" type="image/svg+xml" />
-          <img
-            src="/ongep_watermark_alt.png"
-            alt=""
-            className="w-full h-auto min-w-[800px]"
-            style={{ pointerEvents: 'none' }}
-          />
-        </picture>
-      </div>
+    <header className="bg-[#e90c26] py-10 flex flex-col items-center relative overflow-hidden">      {/* Logo como marca d'água */}      <div
+      className="absolute inset-0 flex items-center justify-center opacity-20 overflow-hidden"
+      style={{
+        mixBlendMode: 'soft-light',
+        filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
+      }}    >        <img
+        src="/ongep_logo.png"
+        className="w-full h-auto min-w-[800px]"
+        aria-hidden="true"
+        alt=""
+      />
+    </div>
 
-      <div className="flex flex-col items-center w-full relative z-10">
-        <div className="mb-4">
-          <img
-            src="/ongep_logo.png"
-            alt="ONGEP Logo"
-            className="h-32 w-auto"
-          />
-        </div>
+      <div className="flex flex-col items-center w-full relative z-10">      <div className="mb-4">          <Link href="/" aria-label="Página inicial ONGEP">            <img
+        src="/ongep_logo.png"
+        alt="ONGEP - Organização Não-Governamental para a Educação Popular"
+        className="h-32 w-auto" />
+      </Link>
+      </div>
         <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-2 drop-shadow-lg">
           Organização Não-Governamental para a Educação Popular
         </h1>

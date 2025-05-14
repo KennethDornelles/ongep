@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" id="logo">
+  <defs>
+    <style>
+      .logo-element {
+        fill: #e63946;
+        fill-opacity: 0.15;
+        stroke: #e63946;
+        stroke-opacity: 0.3;
+        stroke-width: 1;
+      }
+      .logo-text {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 72px;
+        fill: #e63946;
+        fill-opacity: 0.15;
+        stroke: #e63946;
+        stroke-opacity: 0.3;
+        stroke-width: 0.5;
+      }
+      .text-small {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        fill: #e63946;
+        fill-opacity: 0.15;
+        stroke: #e63946;
+        stroke-opacity: 0.3;
+      }
+    </style>
+    
+    <!-- Define paths for reuse -->
+    <path id="fist-icon" d="M250 80c-5,0-8,2-10,5-2,3-2,7-2,10v15c-3-1-5-1-8-1-8,0-15,3-20,8s-8,12-8,20v25c0,8 3,15 8,20s12,8 20,8h50c8,0 15-3 20-8s8-12 8-20v-25c0-8-3-15-8-20-3-3-6-5-10-6v-16c0-3 0-7-2-10-2-3-5-5-10-5h-28zm0 10h28c1,0 2,0 2,2v20h-10v-7c0-1-1-2-2-2s-2,1-2,2v7h-6v-7c0-1-1-2-2-2s-2,1-2,2v7h-6v-20c0-2 1-2 2-2zm-20 39c4,0 8,1 10,4 3,2 4,6 4,10v25c0,4-1,8-4,10-2,3-6,4-10,4h-50c-4,0-8-1-10-4-3-2-4-6-4-10v-25c0-4 1-8 4-10 2-3 6-4 10-4h50z" />
+  </defs>
+  
+  <!-- Logo Group for Watermark -->
+  <g id="logo-group">
+    <!-- Fist with pencil icon -->
+    <use href="#fist-icon" class="logo-element" />
+    
+    <!-- ONGEP Text -->
+    <text x="170" y="250" class="logo-text">ONGEP</text>
+    <text x="170" y="275" class="text-small">ORGANIZAÇÃO NÃO GOVERNAMENTAL</text>
+    <text x="170" y="290" class="text-small">PARA EDUCAÇÃO POPULAR</text>
+  </g>
+  
+  <!-- Symbol Only for Light Version -->
+  <g id="symbol-only">
+    <use href="#fist-icon" class="logo-element" />
+  </g>
+</svg>
+  <!-- ONGEP text -->
+  <text x="250" y="220" class="logo-element text-main" text-anchor="middle" font-size="60">ONGEP</text>
+  
+  <!-- Subtitle text -->
+  <text x="250" y="260" class="logo-element text-small" text-anchor="middle">ORGANIZAÇÃO NÃO GOVERNAMENTAL</text>
+  <text x="250" y="280" class="logo-element text-small" text-anchor="middle">PARA EDUCAÇÃO POPULAR</text>
+</svg>

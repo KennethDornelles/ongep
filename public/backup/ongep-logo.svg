@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" id="ongep-logo">
+  <defs>
+    <style>
+      .logo-text {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 72px;
+        fill: currentColor;
+      }
+      .logo-subtext {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        fill: currentColor;
+      }
+      .logo-fist {
+        fill: currentColor;
+      }
+    </style>
+    
+    <!-- Define paths for reuse -->
+    <path id="fist-icon-path" d="M80 40c-5,0-8,2-10,5-2,3-2,7-2,10v15c-3-1-5-1-8-1-8,0-15,3-20,8s-8,12-8,20v25c0,8 3,15 8,20s12,8 20,8h50c8,0 15-3 20-8s8-12 8-20v-25c0-8-3-15-8-20-3-3-6-5-10-6v-16c0-3 0-7-2-10-2-3-5-5-10-5h-28zm0 10h28c1,0 2,0 2,2v20h-10v-7c0-1-1-2-2-2s-2,1-2,2v7h-6v-7c0-1-1-2-2-2s-2,1-2,2v7h-6v-20c0-2 1-2 2-2zm-20 39c4,0 8,1 10,4 3,2 4,6 4,10v25c0,4-1,8-4,10-2,3-6,4-10,4h-50c-4,0-8-1-10-4-3-2-4-6-4-10v-25c0-4 1-8 4-10 2-3 6-4 10-4h50z" />
+  </defs>
+  
+  <!-- Main logo content -->
+  <g id="ongep-logo-content">
+    <!-- Fist with pencil icon -->
+    <g id="logo-symbol">
+      <use href="#fist-icon-path" class="logo-fist" />
+    </g>
+    
+    <!-- ONGEP text -->
+    <text x="150" y="100" class="logo-text">ONGEP</text>
+    
+    <!-- Subtext lines -->
+    <text x="150" y="130" class="logo-subtext">ORGANIZAÇÃO NÃO GOVERNAMENTAL</text>
+    <text x="150" y="145" class="logo-subtext">PARA EDUCAÇÃO POPULAR</text>
+    
+    <!-- Fallback for browsers that don't support text in SVG -->
+    <g id="text-fallback" style="display: none;">
+      <path d="M150 100 h72 v-72 h-10 v62 h-62 z" class="logo-text" />
+    </g>
+  </g>
+</svg>

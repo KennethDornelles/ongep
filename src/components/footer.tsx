@@ -43,140 +43,134 @@ export default function Footer() {
         if (result.success) {
             setNewsletterEmail("");
         }
-    }; return (
-        <footer className="bg-[#e90c26] text-white pt-12 pb-6 relative overflow-hidden">            {/* Logo como marca d'água */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-15 overflow-hidden">
-                <picture>
-                    <source srcSet="/ongep_watermark.svg" type="image/svg+xml" />
-                    <img
-                        src="/ongep_watermark_alt.png"
-                        alt=""
-                        className="w-full h-auto min-w-[800px]"
-                        style={{ pointerEvents: 'none' }}
-                    />
-                </picture>
-            </div>
-
-            <div className="container mx-auto px-4 relative z-10">
-                <div className="flex justify-center mb-6">
-                    <img
-                        src="/ongep_logo.png"
-                        alt="ONGEP Logo"
-                        className="h-20 w-auto"
-                    />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                    {/* Sobre */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4">{footerT('aboutTitle')}</h3>                        <p className="text-gray-200 mb-4">
-                            {footerT('aboutDescription')}
-                        </p>
-                        <div className="flex gap-4">                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
+    }; return (<footer className="bg-[#e90c26] text-white pt-12 pb-6 relative overflow-hidden">            {/* Logo como marca d'água */}            <div className="absolute inset-0 flex items-center justify-center overflow-hidden">                <img src="/ongep_logo.png"
+        className="w-full h-auto min-w-[800px] opacity-20"
+        aria-hidden="true"
+        alt=""
+        style={{
+            mixBlendMode: 'soft-light',
+            filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
+        }}
+    />
+    </div>            <div className="container mx-auto px-4 relative z-10">                <div className="flex justify-center mb-6">                    <Link href="/" aria-label="Página inicial ONGEP">
+        <img src="/ongep_logo.png"
+            alt="ONGEP - Organização Não-Governamental para a Educação Popular"
+            className="h-20 w-auto"
+        />
+    </Link>
+    </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                {/* Sobre */}
+                <div>
+                    <h3 className="text-xl font-semibold mb-4">{footerT('aboutTitle')}</h3>                        <p className="text-gray-200 mb-4">
+                        {footerT('aboutDescription')}
+                    </p>
+                    <div className="flex gap-4">                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                            className="w-5 h-5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                 className="w-5 h-5">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                             </svg>
                         </a>                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                    className="w-5 h-5">
-                                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                                </svg>
-                            </a>                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                    className="w-5 h-5">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                                </svg>
-                            </a>                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                    className="w-5 h-5">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                    <rect width="4" height="12" x="2" y="9"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </a>
-                        </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="w-5 h-5">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>
+                        </a>                            <a href="#" className="text-white hover:bg-white hover:text-[#e90c26] p-1 rounded-full transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="w-5 h-5">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect width="4" height="12" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
                     </div>
-
-                    {/* Links Rápidos */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4">{footerT('quickLinksTitle')}</h3>
-                        <ul className="space-y-2">
-                            <li>                                <Link href="/" className="text-gray-200 hover:text-white">
-                                {footerT('home')}
-                            </Link>
-                            </li>
-                            <li>                                <Link href="/sobre" className="text-gray-200 hover:text-white">
-                                {footerT('about')}
-                            </Link>
-                            </li>
-                            <li>                                <Link href="/projects" className="text-gray-200 hover:text-white">
-                                {footerT('projects')}
-                            </Link>
-                            </li>
-                            <li>                                <Link href="/eventos" className="text-gray-200 hover:text-white">
-                                {footerT('events')}
-                            </Link>
-                            </li>
-                            <li>                                <Link href="/blog" className="text-gray-200 hover:text-white">
-                                {footerT('blog')}
-                            </Link>
-                            </li>
-                            <li>                                <Link href="/contact" className="text-gray-200 hover:text-white">
-                                {footerT('contact')}
-                            </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Contato */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4">{footerT('contactTitle')}</h3>                            <address className="not-italic text-gray-200 space-y-3">
-                            <p>{footerT('address')}</p>
-                            <p>{footerT('zipCode')}</p>
-                            <p>{footerT('phone')}</p>
-                            <p className="flex items-center">
-                                <Mail className="w-4 h-4 mr-2" /> {footerT('email')}
-                            </p>
-                        </address>
-                    </div>
-
-                    {/* Newsletter */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4">{footerT('newsletterTitle')}</h3>                        <p className="text-gray-200 mb-4">
-                            {footerT('newsletterDescription')}
-                        </p>
-                        <form onSubmit={handleNewsletter} className="space-y-4">
-                            <div>                                <input
-                                ref={newsletterInputRef}
-                                type="email"
-                                value={newsletterEmail}
-                                onChange={(e) => setNewsletterEmail(e.target.value)}
-                                placeholder={t('newsletterPlaceholder')}
-                                className="w-full px-4 py-2 bg-gray-800/40 border border-white/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-white"
-                                required
-                            />
-                            </div>
-                            {newsletterStatus && (
-                                <div className={`text-sm ${newsletterStatus === t('newsletterSuccess') ? 'text-green-300 font-medium' : 'text-white font-medium'}`}>
-                                    {newsletterStatus}
-                                </div>
-                            )}                            <Button type="submit" className="w-full bg-white hover:bg-gray-100 text-[#e90c26] font-bold">
-                                {t('newsletterSubmit')}
-                            </Button>
-                        </form>
-                    </div>
-                </div>                {/* Linha divisória */}
-                <div className="border-t border-gray-100/20 pt-6"><p className="text-center text-gray-200 text-sm">
-                    © {new Date().getFullYear()} {footerT('copyright')}
-                </p>
                 </div>
+
+                {/* Links Rápidos */}
+                <div>
+                    <h3 className="text-xl font-semibold mb-4">{footerT('quickLinksTitle')}</h3>
+                    <ul className="space-y-2">
+                        <li>                                <Link href="/" className="text-gray-200 hover:text-white">
+                            {footerT('home')}
+                        </Link>
+                        </li>
+                        <li>                                <Link href="/sobre" className="text-gray-200 hover:text-white">
+                            {footerT('about')}
+                        </Link>
+                        </li>
+                        <li>                                <Link href="/projects" className="text-gray-200 hover:text-white">
+                            {footerT('projects')}
+                        </Link>
+                        </li>
+                        <li>                                <Link href="/eventos" className="text-gray-200 hover:text-white">
+                            {footerT('events')}
+                        </Link>
+                        </li>
+                        <li>                                <Link href="/blog" className="text-gray-200 hover:text-white">
+                            {footerT('blog')}
+                        </Link>
+                        </li>
+                        <li>                                <Link href="/contact" className="text-gray-200 hover:text-white">
+                            {footerT('contact')}
+                        </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Contato */}
+                <div>
+                    <h3 className="text-xl font-semibold mb-4">{footerT('contactTitle')}</h3>                            <address className="not-italic text-gray-200 space-y-3">
+                        <p>{footerT('address')}</p>
+                        <p>{footerT('zipCode')}</p>
+                        <p>{footerT('phone')}</p>
+                        <p className="flex items-center">
+                            <Mail className="w-4 h-4 mr-2" /> {footerT('email')}
+                        </p>
+                    </address>
+                </div>
+
+                {/* Newsletter */}
+                <div>
+                    <h3 className="text-xl font-semibold mb-4">{footerT('newsletterTitle')}</h3>                        <p className="text-gray-200 mb-4">
+                        {footerT('newsletterDescription')}
+                    </p>
+                    <form onSubmit={handleNewsletter} className="space-y-4">
+                        <div>                                <input
+                            ref={newsletterInputRef}
+                            type="email"
+                            value={newsletterEmail}
+                            onChange={(e) => setNewsletterEmail(e.target.value)}
+                            placeholder={t('newsletterPlaceholder')}
+                            className="w-full px-4 py-2 bg-gray-800/40 border border-white/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-white"
+                            required
+                        />
+                        </div>
+                        {newsletterStatus && (
+                            <div className={`text-sm ${newsletterStatus === t('newsletterSuccess') ? 'text-green-300 font-medium' : 'text-white font-medium'}`}>
+                                {newsletterStatus}
+                            </div>
+                        )}                            <Button type="submit" className="w-full bg-white hover:bg-gray-100 text-[#e90c26] font-bold">
+                            {t('newsletterSubmit')}
+                        </Button>
+                    </form>
+                </div>
+            </div>                {/* Linha divisória */}
+            <div className="border-t border-gray-100/20 pt-6"><p className="text-center text-gray-200 text-sm">
+                © {new Date().getFullYear()} {footerT('copyright')}
+            </p>
             </div>
-        </footer>
+        </div>
+    </footer>
     )
 }

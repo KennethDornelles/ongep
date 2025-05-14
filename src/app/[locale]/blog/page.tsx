@@ -43,19 +43,19 @@ export default function BlogPage() {
 
     return (
         <div className="flex flex-col min-h-screen">            {/* Hero Section */}
-            <section className="relative w-full h-[300px] bg-[#e90c26] flex items-center justify-center text-white overflow-hidden">
-                {/* Logo como marca d'água */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-15 overflow-hidden">
-                    <picture>
-                        <source srcSet="/ongep_watermark.svg" type="image/svg+xml" />
-                        <img
-                            src="/ongep_watermark_alt.png"
-                            alt=""
-                            className="w-full h-auto min-w-[800px]"
-                            style={{ pointerEvents: 'none' }}
-                        />
-                    </picture>
-                </div>
+            <section className="relative w-full h-[300px] bg-[#e90c26] flex items-center justify-center text-white overflow-hidden">                {/* Logo como marca d'água */}                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">                    <img
+                src="/ongep_logo.png"
+                className="w-full h-auto min-w-[800px]"
+                style={{
+                    pointerEvents: 'none',
+                    opacity: 0.2,
+                    mixBlendMode: 'soft-light',
+                    filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
+                }}
+                aria-hidden="true"
+                alt=""
+            />
+            </div>
                 <div className="container mx-auto px-4 z-20 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">{blogT('heroTitle')}</h1>
                     <p className="text-lg md:text-xl max-w-3xl mx-auto">
@@ -66,19 +66,19 @@ export default function BlogPage() {
 
             {/* Blog Categories */}
             <section className="py-12 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <Button className="bg-emerald-600 hover:bg-emerald-700">{blogT('allPosts')}</Button>
-                        {blogT('categories').map((category: string, index: number) => (
-                            <Button
-                                key={index}
-                                variant="outline"
-                                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-                            >
-                                {category}
-                            </Button>
-                        ))}
-                    </div>
+                <div className="container mx-auto px-4">                    <div className="flex flex-wrap justify-center gap-4">
+                    <Button className="bg-emerald-600 hover:bg-emerald-700">{blogT('allPosts')}</Button>
+                    {/* Definir categorias manualmente para evitar o erro de tipo */}
+                    {["Educação", "Projetos", "Voluntariado", "Histórias"].map((category: string, index: number) => (
+                        <Button
+                            key={index}
+                            variant="outline"
+                            className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                        >
+                            {category}
+                        </Button>
+                    ))}
+                </div>
                 </div>
             </section>
 
