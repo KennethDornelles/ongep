@@ -23,13 +23,36 @@ export default function Header() {
   // Fecha o menu ao clicar em qualquer link do menu mobile
   function handleNavClick() {
     setIsMenuOpen(false);
-  }
+  } return (
+    <header className="bg-[#e90c26] py-10 flex flex-col items-center relative overflow-hidden">      {/* Logo como marca d'água */}
+      <div
+        className="absolute inset-0 flex items-center justify-center opacity-20 overflow-hidden"
+        style={{
+          mixBlendMode: 'soft-light',
+          filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
+        }}
+      >
+        <picture>
+          <source srcSet="/ongep_watermark.svg" type="image/svg+xml" />
+          <img
+            src="/ongep_watermark_alt.png"
+            alt=""
+            className="w-full h-auto min-w-[800px]"
+            style={{ pointerEvents: 'none' }}
+          />
+        </picture>
+      </div>
 
-  return (
-    <header className="bg-[#b3b3b3] py-10 flex flex-col items-center relative">
-      <div className="flex flex-col items-center w-full relative">
-        <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-2 drop-shadow-lg">
-          ONGEP - Organização Não-Governamental para a Educação Popular
+      <div className="flex flex-col items-center w-full relative z-10">
+        <div className="mb-4">
+          <img
+            src="/ongep_logo.png"
+            alt="ONGEP Logo"
+            className="h-32 w-auto"
+          />
+        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-2 drop-shadow-lg">
+          Organização Não-Governamental para a Educação Popular
         </h1>
         <span className="text-white text-lg font-medium mb-8"></span>
         {/* Overlay para bloquear interação e escurecer fundo quando menu está aberto */}
@@ -49,22 +72,26 @@ export default function Header() {
               {isMenuOpen ? commonT('close') : commonT('menu')}
             </span>
           </button>
-        </div>
-        {/* Menu de navegação */}
-        <nav
+        </div>        {/* Menu de navegação */}          <nav
           className={
             `md:flex flex-row gap-8 justify-center items-center bg-transparent ${isMenuOpen
-              ? 'flex flex-col fixed left-0 top-[100px] w-full bg-neutral-900 bg-opacity-100 py-8 px-6 shadow-2xl z-50'
+              ? 'flex flex-col fixed left-0 top-[100px] w-full bg-[#e90c26] bg-opacity-95 py-8 px-6 shadow-2xl z-50'
               : 'hidden'
             } md:static md:bg-transparent md:py-0 md:px-0 md:shadow-none`
           }
-        >
-          <NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('home')}</NavLink>
+        ><NavLink href="/" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('home')}</NavLink>
+          <NavLink href="/horarios" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>HORÁRIOS</NavLink>
+          <NavLink href="/aprovados" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>APROVADOS DA ONGEP</NavLink>
           <NavLink href="/eventos" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('events')}</NavLink>
-          <NavLink href="/projects" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('projects')}</NavLink>
           <NavLink href="/blog" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('blog')}</NavLink>
           <NavLink href="/sobre" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('about')}</NavLink>
-          <NavLink href="/contact" activeClassName="border-b-2 border-white text-white font-bold" onClick={handleNavClick}>{t('contact')}</NavLink>
+          <Link
+            href="/contact"
+            onClick={handleNavClick}
+            className="text-[#e90c26] text-lg px-6 py-2 bg-white rounded-md font-bold hover:bg-gray-100 transition-colors"
+          >
+            COMO AJUDAR
+          </Link>
         </nav>
       </div>
     </header>

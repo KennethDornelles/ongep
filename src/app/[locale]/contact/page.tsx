@@ -50,14 +50,24 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero Section */}
-            <section className="relative w-full h-[300px] bg-gradient-to-r from-emerald-800 to-emerald-600 flex items-center justify-center text-white">
-                <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <div className="flex flex-col min-h-screen">            {/* Hero Section */}
+            <section className="relative w-full h-[300px] bg-[#e90c26] flex items-center justify-center text-white overflow-hidden">
+                {/* Logo como marca d'água */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-15 overflow-hidden">
+                    <picture>
+                        <source srcSet="/ongep_watermark.svg" type="image/svg+xml" />
+                        <img
+                            src="/ongep_watermark_alt.png"
+                            alt=""
+                            className="w-full h-auto min-w-[800px]"
+                            style={{ pointerEvents: 'none' }}
+                        />
+                    </picture>
+                </div>
                 <div className="container mx-auto px-4 z-20 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">{contactT('heroTitle')}</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4">COMO AJUDAR</h1>
                     <p className="text-lg md:text-xl max-w-3xl mx-auto">
-                        {contactT('heroSubtitle')}
+                        Saiba como você pode contribuir com a nossa causa
                     </p>
                 </div>
             </section>
@@ -114,10 +124,9 @@ export default function ContactPage() {
                                         <div className={`text-sm ${contactStatus === t('contactFormSuccess') ? 'text-green-600' : 'text-red-600'}`}>
                                             {contactStatus}
                                         </div>
-                                    )}
-                                    <Button
+                                    )}                                    <Button
                                         type="submit"
-                                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
+                                        className="w-full"
                                         disabled={contactLoading}
                                     >
                                         {commonT('submit')}
@@ -129,23 +138,21 @@ export default function ContactPage() {
                         {/* Informações de contato */}
                         <div className="space-y-8">
                             <div>
-                                <h2 className="text-2xl font-bold mb-6">{contactT('contactInfoTitle')}</h2>
-                                <div className="space-y-4">
+                                <h2 className="text-2xl font-bold mb-6">{contactT('contactInfoTitle')}</h2>                                <div className="space-y-4">
                                     <div className="flex items-center">
-                                        <Phone className="h-5 w-5 text-emerald-600 mr-3" />
+                                        <Phone className="h-5 w-5 text-[#e90c26] mr-3" />
                                         <p className="text-gray-700">{t('contact.phone')}</p>
                                     </div>
                                     <div className="flex items-center">
-                                        <Mail className="h-5 w-5 text-emerald-600 mr-3" />
+                                        <Mail className="h-5 w-5 text-[#e90c26] mr-3" />
                                         <p className="text-gray-700">{t('contact.email')}</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div>
-                                <h2 className="text-2xl font-bold mb-6">{contactT('addressTitle')}</h2>
+                            <div>                                <h2 className="text-2xl font-bold mb-6">{contactT('addressTitle')}</h2>
                                 <div className="flex items-start">
-                                    <MapPin className="h-5 w-5 text-emerald-600 mt-1 mr-3" />
+                                    <MapPin className="h-5 w-5 text-[#e90c26] mt-1 mr-3" />
                                     <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: t('contact.address') }} />
                                 </div>
                             </div>
@@ -160,12 +167,10 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-8 bg-emerald-50">
+            </section>            {/* CTA Section */}
+            <section className="py-8 bg-[#e90c26]/10">
                 <div className="container mx-auto px-4 text-center">
-                    <p className="text-lg text-emerald-800">
+                    <p className="text-lg text-[#e90c26] font-medium">
                         {contactT('ctaMessage')}
                     </p>
                 </div>
